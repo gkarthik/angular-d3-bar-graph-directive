@@ -89,3 +89,19 @@ body {
     border-bottom: 0;
   }
 }
+
+.axis path{
+  shape-rendering: crispEdges;
+  fill: none;
+  stroke: #000;
+}
+
+.axis line{
+  fill: none;
+  stroke: #000;
+  stroke-width: 1px;
+}
+
+.axis text{
+  font-size: 10px;
+}
