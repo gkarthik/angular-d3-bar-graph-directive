@@ -59,14 +59,26 @@ angular.module('connectApp')
               .call(yAxis);
 
           var wrapper = svg.append('svg:g')
-                            .attr('translate','transform('+parseInt(mX+10)+',0)');
+                            .attr('class', 'lines-circle-wrapper');
           
+          var overlayRect = wrapper.append('svg:rect')
+                            .attr('height', h-2*mY)
+                            .attr('width', w-2*mX)
+                            .attr('fill', '#FFF')
+                            .attr('transform','translate('+mX+','+parseInt(mY-1)+')');
+
+          overlayRect.on('mouseenter', function(){
+            d3.select(this).append('svg:text').attr('class','data-alert').attr('transform', 'translate('+d3.mouse(this)+')').text('Hello World!').style('fill','#000');
+          });
+          overlayRect.on('mouseleave', function(){
+            d3.select(this).selectAll('.data-alert').remove();
+          });
           var bars = wrapper.selectAll('.users').data(data);
           
           bars.enter()
             .append('svg:circle')
             .attr('class','users')
-            .attr('r', 2)
+            .attr('r', 3)
             .attr('cx', function(d, i){
               var cx = mX+x(new Date(d.DAY));
               if(i > 0){
@@ -106,7 +118,8 @@ angular.module('connectApp')
             .attr('y2', function(d){
               return h-mY;
             })
-            .style('stroke', 'steelblue');
+            .style('stroke', 'steelblue')
+            .style('stroke-width', '3px');
           lines.transition().duration(500)
             .attr('y1', function(d){
               return d.y1;
