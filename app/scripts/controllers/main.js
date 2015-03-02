@@ -8,10 +8,13 @@
  * Controller of the connectApp
  */
 angular.module('connectApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($scope, $http) {
+    $scope.dauJSON = [];
+    $http.get('/sample-data/dailyusers.json').
+      success(function(data, status, headers, config) {
+        $scope.dauJSON = data;
+      }).
+      error(function(data, status, headers, config) {
+        console.log("error getting dau data.");
+      });
   });
