@@ -3,6 +3,11 @@
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.11.1.
 
+##Usage
+
+Add tag to generate line graph.
+<time-series data-json-file="json"></time-series>
+
 ## Build & development
 
 Run `grunt` for building and `grunt serve` for preview.
