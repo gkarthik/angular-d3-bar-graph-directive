@@ -8,8 +8,8 @@
  */
 angular.module('connectApp')
   .directive('timeSeries', function () {
-	  return {
-	  	template: '<svg></svg>',
+		return {
+			template: '<svg></svg>',
       restrict: 'E',
       replace: 'true',
       templateNamespace: 'svg',
