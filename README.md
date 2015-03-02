@@ -6,7 +6,7 @@ version 0.11.1.
 ##Usage
 
 Add tag to generate line graph.
-<time-series data-json-file="json"></time-series>
+  `<time-series data-json-file="json"></time-series>`
 
 ## Build & development
 
